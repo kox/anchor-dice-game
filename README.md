@@ -1,3 +1,31 @@
+# Anchor Dice Game
+
+## Overview
+
+This Solana-based decentralized application (dApp) allows players to place and resolve bets in a secure, transparent, and decentralized manner. The program is built using the Anchor framework, which simplifies the development of Solana programs by providing a structured and easy-to-use environment.
+Key Features
+
+* Bet Placement: Players can place bets with a specified amount of SOL, which is securely stored in a house-controlled vault.
+* Signature Verification: The program utilizes Ed25519 signatures to ensure the integrity and authenticity of bet placements and resolutions, preventing tampering or fraudulent activities.
+* Bet Resolution: The outcome of each bet is determined by a cryptographic hash, ensuring fairness and randomness. The program also applies a configurable house edge to determine the final payout.
+* Event Emission: Upon resolving a bet, the program emits events that log the outcome, providing transparency and an auditable record of all bet results.
+
+## Architecture
+
+The program revolves around several key instructions and account structures:
+
+* PlaceBet: Facilitates the placement of a bet by a player. It involves transferring SOL to a vault and initializing a Bet account to store the details of the wager.
+* ResolveBet: Handles the resolution of a placed bet. It verifies the bet's signature, calculates the outcome using a cryptographic hash, and transfers the payout to the player if they win.
+* House Vault Management: The program uses program-derived accounts (PDAs) to manage vaults where SOL is stored securely until the bet is resolved.
+
+## Security Considerations
+
+* Signature Verification: To ensure that bets are legitimate and have not been tampered with, the program verifies Ed25519 signatures against the expected public key of the house.
+* House Edge: A house edge is applied to all bets, ensuring that the house retains a small percentage of all payouts, thus sustaining the operation of the dApp.
+* Fairness and Transparency: By using cryptographic hashing and event emission, the program ensures that all bet outcomes are both fair and publicly verifiable.
+
+This program provides a robust foundation for decentralized betting on the Solana blockchain, leveraging the speed, security, and scalability of Solana, combined with the ease of use provided by the Anchor framework.
+
 ## Initialize Instruction
 ### Overview
 
